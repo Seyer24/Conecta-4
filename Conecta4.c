@@ -17,6 +17,7 @@ void AcabarJuego();
 //Defininos el tamano del tablero 
 #define COLUMNAS 6
 #define filas 7
+#define Nombre 30
 
 int main(){
 
@@ -29,11 +30,28 @@ int main(){
     printf("\nSalir del juego?  2=nO ");
     scanf("%d", &opc);
 
-  } while (opc = 1 || opc > = 2)
+      switch{
+        case 1:
+        break;
+
+        case 2:
+        break;
+
+        
+      }
+  } while (opc =! 2)
       printf("\nDesea volver al menu? Si=1 Y terminar el juego=2  ");
         scanf("%d", &opc);
   
 return 0;
 }
 
+void IniciarJuego(){
+  printf("\n Gracias por jugar. Reyes Arath---Nadia");
+  sleep (1);
+
+  
+}
+
+void 
 

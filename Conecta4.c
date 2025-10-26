@@ -29,7 +29,7 @@ int main(){
     printf("\nSalir del juego?  2=nO ");
     scanf("%d", &opc);
 
-  } while (opc = 1)
+  } while (opc = 1 || opc > = 2)
       printf("\nDesea volver al menu? Si=1 Y terminar el juego=2  ");
         scanf("%d", &opc);
   

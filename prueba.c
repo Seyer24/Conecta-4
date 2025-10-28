@@ -61,7 +61,8 @@ int main(){
 
 		if(columna < 1 || columna > COLUMNAS){
 			printf("Valor invalido! Ingresa valor entre 1-6 solamente.\n");
-        printf("Presione enter para continuar...");
+        	
+			system("pause");
 			while (getchar () != '\n'); //Para limpiar el buffer
 			continue;
 		}
@@ -91,6 +92,7 @@ int main(){
 
 	LimpiarPantalla();
 	ImprimirTablero(tablero);
+	
 	if(ganador){
 		if(turnoActual == 1)
 			printf("\n¡%s (X) ha ganado!\n", jugador1);
@@ -114,7 +116,7 @@ void InicializarTablero(char tablero[FILAS][COLUMNAS]){
 void ImprimirTablero(char tablero[FILAS][COLUMNAS]){
 	printf("\n  ");
 	for(int i=1; i<=COLUMNAS; i++)
-		printf(" %d ", i);
+		printf(" %2d ", i);
 	printf("\n");
 
 	  for(int i=0; i<FILAS; i++){
@@ -145,7 +147,9 @@ void AnimarCaida(char tablero[FILAS][COLUMNAS], int columna, char ficha){
 	
   for(int i=0; i<FILAS; i++){
 		if(tablero[i][columna] != ' '){
-      int destino = 1; //Posicion final de la fecha
+      int destino = 1; //Posicion final de la ficha
+
+	 tablero[i][columna] = ' ';
 			
       for(int k=0; k<destino; k++){
 				LimpiarPantalla();
@@ -157,9 +161,11 @@ void AnimarCaida(char tablero[FILAS][COLUMNAS], int columna, char ficha){
 				    temp[k][columna] = ficha;
 				    ImprimirTablero(temp);
 
-				struct timespec ts = {0, 300000000}; // 0.1 seg
+				struct timespec ts = {0, 500000000}; // 0.5 seg
 				nanosleep(&ts, NULL);
 			}
+
+			tablero[i][columna] = ficha;
 			break;
 		}
 	}
